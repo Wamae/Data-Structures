@@ -1,10 +1,10 @@
 package com.company;
 
-public class MyDoublyLinkedList {
+public class DoublyLinkedList<T> {
     Node head;
 
     public static void main(String[] args) {
-        MyDoublyLinkedList list = new MyDoublyLinkedList();
+        DoublyLinkedList list = new DoublyLinkedList();
         printList(list);
         System.out.println("append 1");
         list.append(1);
@@ -37,14 +37,14 @@ public class MyDoublyLinkedList {
         printList(list);
 
         System.out.println("prepend 0 to empty list");
-        list = new MyDoublyLinkedList();
+        list = new DoublyLinkedList();
         list.prepend(0);
         printList(list);
 
 
     }
 
-    public void append(int data) {
+    public void append(T data) {
         if (head == null) {
             head = new Node(data);
             return;
@@ -60,7 +60,7 @@ public class MyDoublyLinkedList {
         current.next = newNode;
     }
 
-    public void prepend(int data) {
+    public void prepend(T data) {
         if (head == null) {
             head = new Node(data);
             return;
@@ -72,7 +72,7 @@ public class MyDoublyLinkedList {
         head = newHead;
     }
 
-    public void delete(int data) {
+    public void delete(T data) {
         if (head.data == data) {
             head = head.next;
             return;
@@ -81,7 +81,7 @@ public class MyDoublyLinkedList {
         Node current = head;
         while (current.next != null) {
             if (current.next.data == data) {
-                if(current.next.next == null){
+                if (current.next.next == null) {
                     current.next = null;
                     return;
                 }
@@ -94,7 +94,7 @@ public class MyDoublyLinkedList {
         }
     }
 
-    private static void printList(MyDoublyLinkedList list) {
+    private static void printList(DoublyLinkedList list) {
         StringBuilder builder = new StringBuilder();
         Node current = list.head;
         while (current != null) {
@@ -105,12 +105,12 @@ public class MyDoublyLinkedList {
         System.out.println(builder.toString());
     }
 
-    class Node {
+    static class Node<T> {
         Node previous;
         Node next;
-        int data;
+        T data;
 
-        public Node(int data) {
+        public Node(T data) {
             this.data = data;
         }
 

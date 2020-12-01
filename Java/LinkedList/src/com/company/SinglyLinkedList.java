@@ -1,10 +1,10 @@
 package com.company;
 
-public class MyLinkedList {
+public class SinglyLinkedList <T>{
     Node head;
 
     public static void main(String[] args) {
-        MyLinkedList list = new MyLinkedList();
+        SinglyLinkedList<Integer> list = new SinglyLinkedList();
         System.out.println("prepend 0 to empty list");
         list.prepend(0);
         printList(list);
@@ -57,7 +57,7 @@ public class MyLinkedList {
         head = newHead;
     }
 
-    public void delete(int data) {
+    public void delete(T data) {
         if (head == null) {
             return;
         }
@@ -78,7 +78,7 @@ public class MyLinkedList {
         }
     }
 
-    private static void printList(MyLinkedList list) {
+    private static void printList(SinglyLinkedList list) {
         StringBuilder builder = new StringBuilder();
         Node current = list.head;
         while (current != null) {
@@ -90,11 +90,11 @@ public class MyLinkedList {
     }
 
 
-    static class Node {
+    static class Node<T> {
         Node next;
-        int data;
+        T data;
 
-        public Node(int data) {
+        public Node(T data) {
             this.data = data;
         }
     }
