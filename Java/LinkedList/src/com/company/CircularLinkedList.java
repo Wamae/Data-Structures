@@ -6,7 +6,7 @@ public class CircularLinkedList<T> {
     Node head;
 
     public static void main(String[] main) {
-        CircularLinkedList list = new CircularLinkedList();
+        CircularLinkedList<Integer> list = new CircularLinkedList();
         System.out.println("prepend 0 to empty list");
         list.prepend(0);
         printList(list);
@@ -38,7 +38,7 @@ public class CircularLinkedList<T> {
         Node current = list.head;
         if (current != null) {
             do {
-                builder.append("[data: " + current.data + " next: " + current.next + "],");
+                builder.append(current + ",");
                 current = current.next;
             } while (current != null && current != list.head);
         }
@@ -60,7 +60,6 @@ public class CircularLinkedList<T> {
         Node newLast = new Node(data);
         current.next = newLast;
         newLast.next = head;
-
     }
 
     public int size() {
@@ -124,7 +123,10 @@ public class CircularLinkedList<T> {
 
         @Override
         public String toString() {
-            return String.valueOf(data);
+            return "Node{" +
+                    "data=" + data +
+                    ", next=" + next +
+                    '}';
         }
     }
 }
