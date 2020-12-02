@@ -82,7 +82,7 @@ public class SinglyLinkedList <T>{
         StringBuilder builder = new StringBuilder();
         Node current = list.head;
         while (current != null) {
-            builder.append(current.data + ",");
+            builder.append(current + ",");
             current = current.next;
         }
 
@@ -96,6 +96,13 @@ public class SinglyLinkedList <T>{
 
         public Node(T data) {
             this.data = data;
+        }
+        @Override
+        public String toString() {
+            return "Node{" +
+                    "data=" + data +
+                    ", next=" + next +
+                    '}';
         }
     }
 }

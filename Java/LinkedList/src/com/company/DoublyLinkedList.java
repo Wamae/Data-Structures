@@ -98,7 +98,7 @@ public class DoublyLinkedList<T> {
         StringBuilder builder = new StringBuilder();
         Node current = list.head;
         while (current != null) {
-            builder.append("[data: " + current.data + " previous: " + current.previous + " next: " + current.next + "],");
+            builder.append(current + ",");
             current = current.next;
         }
 
@@ -116,7 +116,10 @@ public class DoublyLinkedList<T> {
 
         @Override
         public String toString() {
-            return String.valueOf(this.data);
+            return "Node{" +
+                    "data=" + data +
+                    ", next=" + next +
+                    '}';
         }
     }
 }
